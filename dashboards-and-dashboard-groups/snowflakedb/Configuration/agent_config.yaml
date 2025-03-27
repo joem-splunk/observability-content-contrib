@@ -148,11 +148,9 @@ service:
       receivers: [jaeger, otlp, smartagent/signalfx-forwarder, zipkin]
       processors:
       - memory_limiter
-      - attributes  
       - batch
       - resourcedetection
-      - resource/add_environment
-      exporters: [sapm, signalfx, splunk_hec, splunk_hec/log_observer]
+      exporters: [sapm, signalfx, splunk_hec]
       # Use instead when sending to gateway
       #exporters: [otlp, signalfx]
     metrics:
